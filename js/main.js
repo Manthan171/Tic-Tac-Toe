@@ -1,12 +1,20 @@
+let playerXScore = 0;
+let playerOScore = 0;
 let isPlayer = 1;
 
 function start(id){
     if(document.getElementById(id).innerHTML === "" ){
         if(isPlayer == 1){
             document.getElementById(id).innerHTML = "X";
+            document.getElementById(id).style = "box-shadow: none;";
+            document.getElementById(id).classList.add("fade-in");
+            document.getElementById(id).style.background = "transparent";
             isPlayer = 0;
         }else{
             document.getElementById(id).innerHTML = "0";
+            document.getElementById(id).style = "box-shadow: none;";
+            document.getElementById(id).classList.add("fade-in");
+            document.getElementById(id).style.background = "transparent";
             isPlayer = 1;
         }
         conditional();
@@ -24,29 +32,57 @@ function conditional(){
     const input8 = document.getElementById("input8").innerHTML;
     const input9 = document.getElementById("input9").innerHTML;
     let input = document.getElementsByClassName("div");
+
     
     if(((input1=='X') && (input2=='X') && (input3=='X')) || ((input4=='X') && (input5=='X') && (input6=='X')) || ((input7=='X') && (input8=='X') && (input9=='X')) || ((input1=='X') && (input4=='X') && (input7=='X')) || ((input2=='X') && (input5=='X') && (input8=='X')) || ((input3=='X') && (input6=='X') && (input9=='X')) || ((input3=='X') && (input5=='X') && (input7=='X')) || ((input1=='X') && (input5=='X') && (input9=='X'))){
-        document.getElementById("winning-msg-text").innerHTML = "X is winner.....";
-        for(let j = 0; j<10; j++){
+        document.getElementById("main-wrapper").style = "display: block;";
+        console.log("x won");
+        playerXScore += 1;
+        // document.getElementById("game-over").style = "display: block;";
+        document.getElementById("playerX-score").innerHTML = playerXScore;
+        document.getElementById("winning-msg").innerHTML = "X is winner.......&#127881;!";
+        for(let j = 0; j<9; j++){
             input[j].style.pointerEvents = "none";
         }
     }else if(((input1=='0') && (input2=='0') && (input3=='0')) || ((input4=='0') && (input5=='0') && (input6=='0')) || ((input7=='0') && (input8=='0') && (input9=='0')) || ((input1=='0') && (input4=='0') && (input7=='0')) || ((input2=='0') && (input5=='0') && (input8=='0')) || ((input3=='0') && (input6=='0') && (input9=='0')) || ((input3=='0') && (input5=='0') && (input7=='0')) || ((input1=='0') && (input5=='0') && (input9=='0'))){
-        document.getElementById("winning-msg-text").innerHTML = "O is winner.....";
-        for(let j = 0; j<10; j++){
+        document.getElementById("main-wrapper").style = "display: block;";
+        // document.getElementById("game-over").style = "display: block;";
+        playerOScore += 1;
+        document.getElementById("playerO-score").innerHTML = playerOScore;
+        document.getElementById("winning-msg").innerHTML = "0 is winner.......&#127881;!";
+        for(let j = 0; j<9; j++){
             input[j].style.pointerEvents = "none";
         }
     }else if ((input1=='X' || input1=='0') && (input2=='X' || input2=='0') && (input3=='X' || input3=='0') && (input4=='X' || input4=='0') && (input5=='X' || input5=='0') && (input6=='X' || input6=='0') && (input7=='X' || input7=='0') && (input8=='X' || input8=='0') && (input9=='X' || input9=='0')){
-        document.getElementById("winning-msg-text").innerHTML = "match is tied..";
+        document.getElementById("main-wrapper").style = "display: none;";
+        document.getElementById("game-over").style = "display: block;";
+        document.getElementById("winning-msg").innerHTML = "Match tied.......&#128542;!";
     }
 }
 
 function reset(){
     let input = document.getElementsByClassName("div");
     for(let i = 1;i<10;i++){
+        document.getElementById("input"+i).style.background = "#fff";
         document.getElementById("input"+i).innerHTML = "";
+        document.getElementById("input"+i).classList.remove("fade-in");
     }
     document.getElementById("winning-msg-text").innerHTML = "";
-    for(let j = 0; j<10; j++){
+    for(let j = 0; j<9; j++){
         input[j].style.pointerEvents = "auto";
     }
+}
+
+function gameDisplay(){
+    let main_wrapper = document.getElementById("main-wrapper");
+    main_wrapper.style = "display: block;";
+    let start = document.getElementById("start-game");
+    start.style = "display: none;";
+    let game_over = document.getElementById("game-over");
+    game_over.style = "display: none;";
+}
+
+function gameOver(){
+    document.getElementById("main-wrapper").style = "display: none;";
+    document.getElementById("game-over").style = "display: block;";
 }

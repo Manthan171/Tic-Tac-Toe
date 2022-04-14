@@ -10,42 +10,80 @@
 
 body{
     text-align: center;
-    background-image: url(../imgs/DIMIGO.jpg);
+    background-image: url(../imgs/Back1);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
 }
 
-h1{
+.nav h1{
     color: #fff;
     font-size: 40px;
     font-family: 'Poppins', sans-serif;
 }
 
+.game-wrapper{
+    background-image: url(../imgs/cards.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 .main-div{
     display: grid;
     grid-template-columns: auto auto auto;
-    max-width: 30%;
-    margin: 50px auto;
-    border: 10px solid;
+    grid-template-columns: auto auto auto;
+    backdrop-filter: blur(6px);
+    border-radius: 25px;
+    overflow: hidden;
 }
 
-.div{
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 30px 20px;
+.main-div .div{
+    /* margin: 10px 10px; */
     font-size: 5rem;
     text-align: center;
-    height: 80px;
+    height: 150px;
+    width: 96px;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 10px 10px 5px 0px rgb(0 0 0 / 75%);
+    color: #000;
+    background: #fff;
+    border: 1px solid #000;
+}
+
+.fade-in{
+    animation: fade-in 2s;
+}
+
+.main-div .div1{
+    border-radius: 16px 0 0 0;
+}
+
+.main-div .div3{
+    border-radius: 0 25px 0 0;
+}
+
+.main-div .div7{
+    border-radius: 0 0 0 10px;
+}
+
+.main-div .div9{
+    border-radius: 0 0 16px 0;
+}
+
+.main-div .div img{
+    height: 100%;
+    width: 100%;
 }
 
 .nav{
     display:flex;
-    justify-content: center;
+    justify-content: flex-start;
     margin: 30px auto;
     align-items: center;
 }
 
-.start-btn{
+.winning-message .start-btn{
     background-color: #fff;
     border: none;
     padding: 0px 30px;
@@ -63,10 +101,233 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 20px;
 }
 
-.start-btn:hover{
+.winning-message .start-btn:hover{
     background: transparent;
-    color: #000;
-    border: 1px solid #000;
+    color: #fff;
+    border: 2px solid #fff;
 }
+
+.uno-logo{
+    width: 150px;
+    margin: 0 20px;
+}
+
+.winning-msg-text{
+    font-size: 2rem;
+    color: #fff;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: space-around;
+}
+
+.player-btn{
+    background: #f8db22;
+    padding: 20px;
+    border: none;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    display: flex;
+    justify-content: center;
+    color: #000;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.main-wrapper{
+    display: none;
+}
+
+.start-game-wrapper{
+    margin: 92px 0;
+}
+
+.start-game-wrapper .start-wrapper{
+    width: 50%;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.start-game-wrapper .start-wrapper h1{
+    font-size: 3rem;
+    color: #fff;
+    text-align: center;
+}
+
+.game-over-wrapper{
+    display: none;
+}
+
+.start-game-wrapper .start-wrapper .start-btn{
+    margin-top: 60px;
+    min-width: 300px;
+    min-height: 60px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #fff;
+    background: #f8db22;
+    background: #f8db22;
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 12px 12px 24px rgba(248,219,34,.64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 10px;
+}
+
+.start-game-wrapper .start-wrapper .start-btn::before{
+    content: '';
+    border-radius: 1000px;
+    min-width: calc(300px + 12px);
+    min-height: calc(60px + 12px);
+    border: 6px solid #f8db22;
+    box-shadow: 0 0 60px rgba(248,219,34,.64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+}
+
+.start-game-wrapper .start-wrapper .start-btn:hover, .start-game-wrapper .start-wrapper .start-btn:focus{
+    color: #313133;
+    transform: translateY(-6px);
+}
+
+.start-game-wrapper .start-wrapper .start-btn:hover::before, .start-game-wrapper .start-wrapper .start-btn:focus::before{
+    opacity: 1;
+}
+
+.start-game-wrapper .start-wrapper .start-btn::after{
+    content: '';
+    width: 30px; height: 30px;
+    border-radius: 100%;
+    border: 6px solid #f8db22;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+}
+
+
+.start-game-wrapper .start-wrapper .start-btn:hover::after, .start-game-wrapper .start-wrapper .start-btn:focus::after{
+    animation: none;
+    display: none;
+}
+
+@keyframes ring {
+    0% {
+      width: 30px;
+      height: 30px;
+      opacity: 1;
+    }
+    100% {
+      width: 200px;
+      height: 200px;
+      opacity: 0;
+    }
+  } 
+
+
+.game-over-main h1{
+    font-size: 3rem;
+    color: #fff;
+    text-align: center;
+}
+
+.game-over-main .play-again-btn{
+    margin-top: 60px;
+    min-width: 300px;
+    min-height: 60px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #fff;
+    background: #f8db22;
+    background: #f8db22;
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 12px 12px 24px rgba(248,219,34,.64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 10px;
+}
+
+.game-over-main .play-again-btn::before{
+    content: '';
+    border-radius: 1000px;
+    min-width: calc(300px + 12px);
+    min-height: calc(60px + 12px);
+    border: 6px solid #f8db22;
+    box-shadow: 0 0 60px rgba(248,219,34,.64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+}
+
+.game-over-main .play-again-btn:hover, .game-over-main .play-again-btn:focus{
+    color: #313133;
+    transform: translateY(-6px);
+}
+
+.game-over-main .play-again-btn:hover::before, .game-over-main .play-again-btn:focus::before{
+    opacity: 1;
+}
+
+.game-over-main .play-again-btn::after{
+    content: '';
+    width: 30px; height: 30px;
+    border-radius: 100%;
+    border: 6px solid #f8db22;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+}
+
+
+.game-over-main .play-again-btn:hover::after, .game-over-main .play-again-btn:focus::after{
+    animation: none;
+    display: none;
+}
+
+.game-over-wrapper .game-over-main{
+    width: 50%;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.game-over-wrapper{
+    margin: 92px 0;
+}
+
+@keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
