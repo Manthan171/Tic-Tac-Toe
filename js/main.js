@@ -37,14 +37,13 @@ function conditional(){
     
     if(((input1=='X') && (input2=='X') && (input3=='X')) || ((input4=='X') && (input5=='X') && (input6=='X')) || ((input7=='X') && (input8=='X') && (input9=='X')) || ((input1=='X') && (input4=='X') && (input7=='X')) || ((input2=='X') && (input5=='X') && (input8=='X')) || ((input3=='X') && (input6=='X') && (input9=='X')) || ((input3=='X') && (input5=='X') && (input7=='X')) || ((input1=='X') && (input5=='X') && (input9=='X'))){
         document.getElementById("main-wrapper").style = "display: block;";
-        console.log("x won");
+        // console.log("x won");
         let finalScore = playerOScore + playerXScore + draw;
         if(finalScore === 4){
-            // gameOver();
-            if(playerXScore > playerOScore){
+            if(playerXScore > playerOScore || playerXScore > draw){
                 document.getElementById("game-over").style = "display: block;";
                 document.getElementById("main-wrapper").style = "display: none;";
-                document.getElementById("winning-message").innerHTML = "X is winner.......&#128542;!";
+                document.getElementById("winner").innerHTML = "X is winner.......&#128542;!";
             }
         }else{
             playerXScore += 1;
@@ -52,28 +51,33 @@ function conditional(){
             document.getElementById("winning-popup").classList.remove("hide");
             document.getElementById("winning-msg").innerHTML = "X is winner.......&#127881;!";
         }
-        for(let j = 0; j<9; j++){
-            input[j].style.pointerEvents = "none";
-        }
+        // for(let j = 0; j<9; j++){
+        //     input[j].style.pointerEvents = "none";
+        // }
     }else if(((input1=='0') && (input2=='0') && (input3=='0')) || ((input4=='0') && (input5=='0') && (input6=='0')) || ((input7=='0') && (input8=='0') && (input9=='0')) || ((input1=='0') && (input4=='0') && (input7=='0')) || ((input2=='0') && (input5=='0') && (input8=='0')) || ((input3=='0') && (input6=='0') && (input9=='0')) || ((input3=='0') && (input5=='0') && (input7=='0')) || ((input1=='0') && (input5=='0') && (input9=='0'))){
         document.getElementById("main-wrapper").style = "display: block;";
         let finalScore = playerOScore + playerXScore + draw;
         if(finalScore === 4){
-            if(playerOScore > playerXScore){
+            console.log(playerOScore , playerXScore , draw);
+            if(playerOScore > playerXScore || playerOScore > draw){
+                console.log("sdkhjhd");
                 document.getElementById("game-over").style = "display: block;";
                 document.getElementById("main-wrapper").style = "display: none;";
-                document.getElementById("winning-message").innerHTML = "0 is winner.......&#128542;!";
+                let winnerMessage = document.getElementById("winner");
+                console.log(winnerMessage);
+                winnerMessage.innerHTML = "0 is winner.......&#128542;!";
             }
             // gameOver();
         }else{
+            console.log("in else");
             playerOScore += 1;
             document.getElementById("playerO-score").innerHTML = playerOScore;
             document.getElementById("winning-popup").classList.remove("hide");
             document.getElementById("winning-msg").innerHTML = "0 is winner.......&#127881;!";
         }
-        for(let j = 0; j<9; j++){
-            input[j].style.pointerEvents = "none";
-        }
+        // for(let j = 0; j<9; j++){
+        //     input[j].style.pointerEvents = "none";
+        // }
     }else if ((input1=='X' || input1=='0') && (input2=='X' || input2=='0') && (input3=='X' || input3=='0') && (input4=='X' || input4=='0') && (input5=='X' || input5=='0') && (input6=='X' || input6=='0') && (input7=='X' || input7=='0') && (input8=='X' || input8=='0') && (input9=='X' || input9=='0')){
         document.getElementById("main-wrapper").style = "display: block;";
         let finalScore = playerOScore + playerXScore + draw;
@@ -81,6 +85,7 @@ function conditional(){
             if(draw === 5 || playerXScore === playerOScore){
                 document.getElementById("game-over").style = "display: block;";
                 document.getElementById("main-wrapper").style = "display: none;";
+                document.getElementById("winner").innerHTML = "Match tied.......&#127881;!";
             }
             // gameOver();
         }else{
@@ -115,15 +120,3 @@ function gameDisplay(){
     let game_over = document.getElementById("game-over");
     game_over.style = "display: none;";
 }
-
-// function gameOver(){
-//     if(draw === 5 || playerXScore === playerOScore){
-//         document.getElementById("winning-message").innerHTML = "Match tied.......&#128542;!";
-//     }else if(playerXScore > playerOScore){
-//         document.getElementById("winning-message").innerHTML = "X is winner.......&#128542;!";
-//     }else{
-//         document.getElementById("winning-message").innerHTML = "O is winner.......&#128542;!";
-//     }
-// }
-
-// console.log(gameOver());
