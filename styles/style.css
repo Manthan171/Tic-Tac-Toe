@@ -37,7 +37,6 @@ body{
 .main-div{
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-template-columns: auto auto auto;
     backdrop-filter: blur(6px);
     border-radius: 25px;
     overflow: hidden;
@@ -74,6 +73,7 @@ body{
     color: #000;
     background: #fff;
     border: 1px solid #000;
+    text-shadow: 0 1px #808d93, -1px 0 #cdd2d5, -1px 2px #808d93, -2px 1px #cdd2d5, -2px 3px #808d93, -3px 2px #cdd2d5, -3px 4px #808d93, -4px 3px #cdd2d5, -4px 5px #808d93, -5px 4px #cdd2d5, -5px 6px #808d93, -6px 5px #cdd2d5, -6px 7px #808d93, -7px 6px #cdd2d5, -7px 8px #808d93, -8px 7px #cdd2d5;
 }
 
 .fade-in{
@@ -276,7 +276,7 @@ body{
     color: #fff;
 }
 
-.winning-popup .play-again-btn{
+.play-again-btn{
     margin-top: 20px;
     min-width: 300px;
     min-height: 60px;
@@ -297,7 +297,7 @@ body{
     padding: 10px;
 }
 
-.winning-popup .play-again-btn::before{
+.play-again-btn::before{
     content: '';
     border-radius: 1000px;
     min-width: calc(300px + 12px);
@@ -312,16 +312,16 @@ body{
     transition: all .3s ease-in-out 0s;
 }
 
-.winning-popup .play-again-btn:hover, .winning-popup .play-again-btn:focus{
+.play-again-btn:hover, .play-again-btn:focus{
     color: #313133;
     transform: translateY(-6px);
 }
 
-.winning-popup .play-again-btn:hover::before, .winning-popup .play-again-btn:focus::before{
+.play-again-btn:hover::before, .play-again-btn:focus::before{
     opacity: 1;
 }
 
-.winning-popup .play-again-btn::after{
+.play-again-btn::after{
     content: '';
     width: 30px; height: 30px;
     border-radius: 100%;
@@ -335,7 +335,7 @@ body{
 }
 
 
-.winning-popup .play-again-btn:hover::after, .winning-popup .play-again-btn:focus::after{
+.play-again-btn:hover::after, .play-again-btn:focus::after{
     animation: none;
     display: none;
 }
