@@ -33,7 +33,8 @@ function conditional(){
     const input8 = document.getElementById("input8").innerHTML;
     const input9 = document.getElementById("input9").innerHTML;
     let input = document.getElementsByClassName("div");
-
+    let sound = new Audio ('../music/audio.wav');
+    sound.play();
     
     if(((input1=='X') && (input2=='X') && (input3=='X')) || ((input4=='X') && (input5=='X') && (input6=='X')) || ((input7=='X') && (input8=='X') && (input9=='X')) || ((input1=='X') && (input4=='X') && (input7=='X')) || ((input2=='X') && (input5=='X') && (input8=='X')) || ((input3=='X') && (input6=='X') && (input9=='X')) || ((input3=='X') && (input5=='X') && (input7=='X')) || ((input1=='X') && (input5=='X') && (input9=='X'))){
         document.getElementById("main-wrapper").style = "display: block;";
@@ -43,18 +44,18 @@ function conditional(){
             if(draw === 4 || playerXScore === playerOScore){
                 document.getElementById("game-over").style = "display: block;";
                 document.getElementById("main-wrapper").style = "display: none;";
-                document.getElementById("winner").innerHTML = "Match tied.......&#127881;!";
+                document.getElementById("winner").innerHTML = "Match tied.......&#128542;!";
             }
             else if(playerXScore > playerOScore && playerXScore > draw){
                 document.getElementById("game-over").style = "display: block;";
                 document.getElementById("main-wrapper").style = "display: none;";
-                document.getElementById("winner").innerHTML = "X is winner.......&#128542;!";
+                document.getElementById("winner").innerHTML = "X is winner.......&#127881";
             }else{
                 document.getElementById("game-over").style = "display: block;";
                 document.getElementById("main-wrapper").style = "display: none;";
                 let winnerMessage = document.getElementById("winner");
                 console.log(winnerMessage);
-                winnerMessage.innerHTML = "0 is winner.......&#128542;!";
+                winnerMessage.innerHTML = "0 is winner.......&#127881";
             }
         }else{
             playerXScore += 1;
@@ -71,7 +72,7 @@ function conditional(){
             if(draw === 4 || playerXScore === playerOScore){
                 document.getElementById("game-over").style = "display: block;";
                 document.getElementById("main-wrapper").style = "display: none;";
-                document.getElementById("winner").innerHTML = "Match tied.......&#127881;!";
+                document.getElementById("winner").innerHTML = "Match tied.......&#128542;!";
             }
             else if(playerOScore > playerXScore && playerOScore > draw){
                 console.log("sdkhjhd");
@@ -79,11 +80,11 @@ function conditional(){
                 document.getElementById("main-wrapper").style = "display: none;";
                 let winnerMessage = document.getElementById("winner");
                 console.log(winnerMessage);
-                winnerMessage.innerHTML = "0 is winner.......&#128542;!";
+                winnerMessage.innerHTML = "0 is winner.......&#127881;!";
             }else{
                 document.getElementById("game-over").style = "display: block;";
                 document.getElementById("main-wrapper").style = "display: none;";
-                document.getElementById("winner").innerHTML = "X is winner.......&#128542;!";
+                document.getElementById("winner").innerHTML = "X is winner.......&#127881;!";
             }
         }else{
             console.log("in else");
@@ -107,17 +108,17 @@ function conditional(){
                 console.log("match tied....");
                 document.getElementById("game-over").style = "display: block;";
                 document.getElementById("main-wrapper").style = "display: none;";
-                document.getElementById("winner").innerHTML = "Match tied.......&#127881;!";
+                document.getElementById("winner").innerHTML = "Match tied.......&#128542;!";
             }else if(playerOScore > playerXScore && playerOScore > draw){
                 document.getElementById("game-over").style = "display: block;";
                 document.getElementById("main-wrapper").style = "display: none;";
                 let winnerMessage = document.getElementById("winner");
                 console.log(winnerMessage);
-                winnerMessage.innerHTML = "0 is winner.......&#128542;!";
+                winnerMessage.innerHTML = "0 is winner.......&#127881;!";
             }else{
                 document.getElementById("game-over").style = "display: block;";
                 document.getElementById("main-wrapper").style = "display: none;";
-                document.getElementById("winner").innerHTML = "X is winner.......&#128542;!";
+                document.getElementById("winner").innerHTML = "X is winner.......&#127881;!";
             }
         }else{
             document.getElementById("winning-popup").classList.remove("hide");
