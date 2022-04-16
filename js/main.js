@@ -33,18 +33,22 @@ function conditional(){
     const input8 = document.getElementById("input8").innerHTML;
     const input9 = document.getElementById("input9").innerHTML;
     let input = document.getElementsByClassName("div");
-    let sound = new Audio ('../music/audio.wav');
-    sound.play();
+    let sound1 = new Audio ('../music/audio.wav');
+    sound1.play();
     
     if(((input1=='X') && (input2=='X') && (input3=='X')) || ((input4=='X') && (input5=='X') && (input6=='X')) || ((input7=='X') && (input8=='X') && (input9=='X')) || ((input1=='X') && (input4=='X') && (input7=='X')) || ((input2=='X') && (input5=='X') && (input8=='X')) || ((input3=='X') && (input6=='X') && (input9=='X')) || ((input3=='X') && (input5=='X') && (input7=='X')) || ((input1=='X') && (input5=='X') && (input9=='X'))){
         document.getElementById("main-wrapper").style = "display: block;";
         // console.log("x won");
+        let sound2 = new Audio('../music/audio2.wav');
+        sound2.play();
         let finalScore = playerOScore + playerXScore + draw;
         if(finalScore === 4){
             if(draw === 4 || playerXScore === playerOScore){
                 document.getElementById("game-over").style = "display: block;";
                 document.getElementById("main-wrapper").style = "display: none;";
                 document.getElementById("winner").innerHTML = "Match tied.......&#128542;!";
+                let sound2 = new Audio('../music/audio2.wav');
+                sound2.play();
             }
             else if(playerXScore > playerOScore && playerXScore > draw){
                 document.getElementById("game-over").style = "display: block;";
@@ -66,6 +70,8 @@ function conditional(){
         isPlayer = 1;
     }else if(((input1=='0') && (input2=='0') && (input3=='0')) || ((input4=='0') && (input5=='0') && (input6=='0')) || ((input7=='0') && (input8=='0') && (input9=='0')) || ((input1=='0') && (input4=='0') && (input7=='0')) || ((input2=='0') && (input5=='0') && (input8=='0')) || ((input3=='0') && (input6=='0') && (input9=='0')) || ((input3=='0') && (input5=='0') && (input7=='0')) || ((input1=='0') && (input5=='0') && (input9=='0'))){
         document.getElementById("main-wrapper").style = "display: block;";
+        let sound2 = new Audio('../music/audio2.wav');
+        sound2.play();
         let finalScore = playerOScore + playerXScore + draw;
         if(finalScore === 4){
             console.log(playerOScore , playerXScore , draw);
